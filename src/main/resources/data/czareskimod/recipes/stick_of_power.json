@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " X#",
+    "X#X",
+    "#X "
+  ],
+  "key": {
+    "#": {
+      "item": "minecraft:stick"
+    },
+    "X": {
+      "item": "czareskimod:power_dust"
+    }
+  },
+  "result": {
+    "item": "czareskimod:stick_of_power"
+  }
+}

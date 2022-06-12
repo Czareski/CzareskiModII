@@ -1,5 +1,6 @@
 package net.czareski.czareskimod;
 
+import net.czareski.czareskimod.block.ModBlocks;
 import net.czareski.czareskimod.items.ModItems;
 import net.fabricmc.api.ModInitializer;
 import org.slf4j.Logger;
@@ -18,5 +19,6 @@ public class CzareskiMod implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 		ModItems.RegisterModItems();
+		ModBlocks.RegisterModBlocks();
 	}
 }
