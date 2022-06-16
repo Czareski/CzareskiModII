@@ -13,7 +13,7 @@ import net.minecraft.util.registry.Registry;
 
 public class ModBlocks {
 
-    public static final Block POWER_ORE = registerBlock("power_ore", new Block(FabricBlockSettings.of(Material.METAL).strength(5f).requiresTool()), ItemGroup.MISC);
+    public static final Block POWER_ORE = registerBlock("power_ore", new Block(FabricBlockSettings.of(Material.STONE).strength(3f).requiresTool()), ItemGroup.MISC);
 
     private static Block registerBlock(String name, Block block, ItemGroup group) {
         registerBlockItem(name, block, group);

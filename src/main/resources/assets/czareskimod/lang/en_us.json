@@ -1,5 +1,6 @@
 {
-  "item.czareskimod.stick_of_power": "Stick of POWER",
+  "item.czareskimod.stick_of_power": "Power stick",
   "item.czareskimod.power_dust": "Power dust",
-  "block.czareskimod.power_ore": "Power ore"
+  "block.czareskimod.power_ore": "Power ore",
+  "item.czareskimod.power_rod": "Power rod"
 }
