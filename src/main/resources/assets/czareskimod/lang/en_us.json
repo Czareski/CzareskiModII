@@ -2,5 +2,8 @@
   "item.czareskimod.stick_of_power": "Power stick",
   "item.czareskimod.power_dust": "Power dust",
   "block.czareskimod.power_ore": "Power ore",
-  "item.czareskimod.power_rod": "Power rod"
+  "item.czareskimod.power_rod": "Power rod",
+  "block.czareskimod.trap_block": "Trap block",
+  "block.czareskimod.radar_block": "Radar",
+  "block.czareskimod.cannon": "Cannon"
 }

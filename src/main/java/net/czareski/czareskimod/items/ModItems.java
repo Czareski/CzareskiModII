@@ -16,7 +16,7 @@ public class ModItems {
     private static final Item POWER_DUST = registerItem("power_dust",
             new Item(new FabricItemSettings().group(ItemGroup.MISC)));
     private static final Item POWER_ROD = registerItem("power_rod",
-            new PowerRod(new FabricItemSettings().group(ItemGroup.MISC)));
+            new PowerRod(new FabricItemSettings().group(ItemGroup.MISC).maxCount(1).maxDamage(16)));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier(CzareskiMod.MOD_ID, name), item);

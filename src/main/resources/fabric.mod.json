@@ -20,6 +20,9 @@
   "entrypoints": {
     "main": [
       "net.czareski.czareskimod.CzareskiMod"
+    ],
+    "client": [
+      "net.czareski.czareskimod.CzareskiClientMod"
     ]
   },
   "mixins": [

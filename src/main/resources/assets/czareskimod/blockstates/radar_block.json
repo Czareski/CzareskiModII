@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": {"model": "czareskimod:block/radar_block" }
+  }
+}

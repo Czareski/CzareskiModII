@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "czareskimod:block/cannon",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "czareskimod:block/cannon"
+    },
+    "facing=south": {
+      "model": "czareskimod:block/cannon",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "czareskimod:block/cannon",
+      "y": 270
+    }
+  }
+}
