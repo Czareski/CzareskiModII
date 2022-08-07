@@ -10,15 +10,10 @@ import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class CannonballEntity extends MobEntity {
+public class CannonballEntity extends PathAwareEntity {
 
-    public CannonballEntity(EntityType<? extends MobEntity> entityType, World world) {
+    public CannonballEntity(EntityType<? extends PathAwareEntity> entityType, World world) {
         super(entityType, world);
-    }
-
-    @Override
-    protected void initDataTracker() {
-
     }
 
 }
