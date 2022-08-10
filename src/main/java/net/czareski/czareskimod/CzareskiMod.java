@@ -35,6 +35,5 @@ public class CzareskiMod implements ModInitializer {
 		// Proceed with mild caution.
 		ModItems.RegisterModItems();
 		ModBlocks.RegisterModBlocks();
-		FabricDefaultAttributeRegistry.register(CANNONBALL, CannonballEntity.createMobAttributes());
 	}
 }
