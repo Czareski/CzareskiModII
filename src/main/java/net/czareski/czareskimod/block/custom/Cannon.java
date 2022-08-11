@@ -1,6 +1,8 @@
 package net.czareski.czareskimod.block.custom;
 
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
+import net.czareski.czareskimod.CzareskiMod;
+import net.czareski.czareskimod.entity.CannonballEntity;
 import net.minecraft.block.*;
 import net.minecraft.block.dispenser.DispenserBehavior;
 import net.minecraft.block.dispenser.ItemDispenserBehavior;
@@ -8,7 +10,6 @@ import net.minecraft.block.dispenser.ProjectileDispenserBehavior;
 import net.minecraft.block.entity.DispenserBlockEntity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.entity.projectile.ProjectileEntity;
 import net.minecraft.item.*;
@@ -80,16 +81,16 @@ public class Cannon extends Block {
         BlockPointerImpl blockPointerImpl = new BlockPointerImpl(world, pos);
         Position position = this.getOutputLocation(blockPointerImpl);
         Direction direction = (Direction)blockPointerImpl.getBlockState().get(FACING);
-        ProjectileEntity arrow = strzala(world, position);
-        arrow.setVelocity((double)direction.getOffsetX(), (double)((float)direction.getOffsetY() + 0.1F), (double)direction.getOffsetZ(),  1.5F,2.0F);
-        world.spawnEntity(arrow);
+        ProjectileEntity cannonball = strzala(world, position);
+        cannonball.setVelocity((double)direction.getOffsetX(), (double)((float)direction.getOffsetY() + 0.1F), (double)direction.getOffsetZ(),  1.5F,2.0F);
+        world.spawnEntity(cannonball);
         itemStack.decrement(1);
     }
 
     public ProjectileEntity strzala(World world, Position position) {
-        ArrowEntity arrowEntity = new ArrowEntity(world, position.getX(), position.getY(), position.getZ());
-        arrowEntity.pickupType = PersistentProjectileEntity.PickupPermission.ALLOWED;
-        return arrowEntity;
+        CannonballEntity cannonball = new CannonballEntity(position.getX(), position.getY(), position.getZ(), world);
+        cannonball.pickupType = PersistentProjectileEntity.PickupPermission.ALLOWED;
+        return cannonball;
     }
 
 

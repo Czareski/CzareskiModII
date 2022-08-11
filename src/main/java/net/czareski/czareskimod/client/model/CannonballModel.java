@@ -23,7 +23,7 @@ public class CannonballModel extends EntityModel<CannonballEntity> {
     public static TexturedModelData getTexturedModelData() {
         ModelData modelData = new ModelData();
         ModelPartData modelPartData = modelData.getRoot();
-        modelPartData.addChild(EntityModelPartNames.CUBE, ModelPartBuilder.create().uv(0, 0).cuboid(-4F, 16F, -4F, 8F, 8F, 8F), ModelTransform.pivot(0F, 0F, 0F));
+        modelPartData.addChild(EntityModelPartNames.CUBE, ModelPartBuilder.create().uv(0, 0).cuboid(-4F, 0F, -4F, 8F, 8F, 8F), ModelTransform.pivot(0F, 0F, 0F));
         return TexturedModelData.of(modelData, 64, 64);
     }
 

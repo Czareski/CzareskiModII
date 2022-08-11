@@ -9,6 +9,7 @@ import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
 import net.minecraft.entity.EntityDimensions;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnGroup;
+import net.minecraft.entity.projectile.PersistentProjectileEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 import org.slf4j.Logger;
@@ -24,7 +25,7 @@ public class CzareskiMod implements ModInitializer {
 	public static final EntityType<CannonballEntity> CANNONBALL = Registry.register(
 			Registry.ENTITY_TYPE,
 			new Identifier("czareskimod", "cannonball"),
-			FabricEntityTypeBuilder.create(SpawnGroup.CREATURE, CannonballEntity::new).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
+			FabricEntityTypeBuilder.create(SpawnGroup.MISC, (type, world) -> new CannonballEntity((EntityType<? extends PersistentProjectileEntity>) type, world)).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
 	);
 
 
