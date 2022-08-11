@@ -5,5 +5,6 @@
   "item.czareskimod.power_rod": "Power rod",
   "block.czareskimod.trap_block": "Trap block",
   "block.czareskimod.radar_block": "Radar",
-  "block.czareskimod.cannon": "Cannon"
+  "block.czareskimod.cannon": "Cannon",
+  "item.czareskimod.cannonball": "Cannonball"
 }

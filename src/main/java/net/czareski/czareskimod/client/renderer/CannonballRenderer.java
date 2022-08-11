@@ -45,6 +45,6 @@ public class CannonballRenderer extends EntityRenderer<CannonballEntity> {
 
     @Override
     public Identifier getTexture(CannonballEntity entity) {
-        return new Identifier("czareskimod", "textures/block/cobblestone.png");
+        return new Identifier("czareskimod", "textures/block/iron_block.png");
     }
 }

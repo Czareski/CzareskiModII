@@ -17,6 +17,8 @@ public class ModItems {
             new Item(new FabricItemSettings().group(ItemGroup.MISC)));
     private static final Item POWER_ROD = registerItem("power_rod",
             new PowerRod(new FabricItemSettings().group(ItemGroup.MISC).maxCount(1).maxDamage(16)));
+    public static final Item CANNONBALL = registerItem("cannonball",
+            new Item(new FabricItemSettings().group(ItemGroup.MISC)));
 
     private static Item registerItem(String name, Item item) {
         return Registry.register(Registry.ITEM, new Identifier(CzareskiMod.MOD_ID, name), item);

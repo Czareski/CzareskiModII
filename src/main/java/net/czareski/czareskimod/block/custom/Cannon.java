@@ -59,7 +59,7 @@ public class Cannon extends Block {
                     ServerWorld serverWorld = (ServerWorld) world;
                     Item item = player.getStackInHand(hand).getItem();
                     switch (item.getTranslationKey()) {
-                        case ("item.minecraft.arrow"):
+                        case ("item.czareskimod.cannonball"):
                             strzel(serverWorld, pos, player.getStackInHand(hand), player);
                             break;
                     }

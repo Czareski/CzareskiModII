@@ -24,8 +24,8 @@ public class CzareskiMod implements ModInitializer {
 
 	public static final EntityType<CannonballEntity> CANNONBALL = Registry.register(
 			Registry.ENTITY_TYPE,
-			new Identifier("czareskimod", "cannonball"),
-			FabricEntityTypeBuilder.create(SpawnGroup.MISC, (type, world) -> new CannonballEntity((EntityType<? extends PersistentProjectileEntity>) type, world)).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
+			new Identifier("czareskimod", "cannonballentity"),
+			FabricEntityTypeBuilder.<CannonballEntity>create(SpawnGroup.MISC, (type, world) -> new CannonballEntity(type, world)).dimensions(EntityDimensions.fixed(0.75f, 0.75f)).build()
 	);
 
 
