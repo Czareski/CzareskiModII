@@ -1,0 +1,158 @@
+{
+	"credit": "Made with Blockbench",
+	"texture_size": [32, 32],
+	"textures": {
+		"0": "czareskimod:block/cannon_leg",
+		"1": "czareskimod:block/cannon_base",
+		"2": "czareskimod:block/cannon_barrel_side",
+		"3": "czareskimod:block/cannon_barrel",
+		"particle": "czareskimod:block/cannon_leg"
+	},
+	"elements": [
+		{
+			"name": "Prawa Przednia Noga",
+			"from": [13, 0, 3],
+			"to": [16, 12, 6],
+			"faces": {
+				"north": {"uv": [0, 0, 1, 9], "texture": "#0"},
+				"east": {"uv": [0, 0, 2, 9], "texture": "#0"},
+				"south": {"uv": [0, 0, 1, 9], "texture": "#0"},
+				"west": {"uv": [0, 0, 2, 9], "texture": "#0"},
+				"up": {"uv": [0, 0, 1, 2], "texture": "#0"},
+				"down": {"uv": [0, 0, 1, 2], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Lewa Tylna Noga",
+			"from": [0, 0, 10],
+			"to": [3, 12, 13],
+			"faces": {
+				"north": {"uv": [0, 0, 1, 9], "texture": "#0"},
+				"east": {"uv": [0, 0, 2, 9], "texture": "#0"},
+				"south": {"uv": [0, 0, 1, 9], "texture": "#0"},
+				"west": {"uv": [0, 0, 2, 9], "texture": "#0"},
+				"up": {"uv": [0, 0, 1, 2], "texture": "#0"},
+				"down": {"uv": [0, 0, 1, 2], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Lewa Przednia Noga",
+			"from": [0, 0, 3],
+			"to": [3, 12, 6],
+			"faces": {
+				"north": {"uv": [0, 0, 3, 12], "texture": "#0"},
+				"east": {"uv": [3, 0, 6, 12], "texture": "#0"},
+				"south": {"uv": [6, 0, 9, 12], "texture": "#0"},
+				"west": {"uv": [9, 0, 12, 12], "texture": "#0"},
+				"up": {"uv": [3, 15, 0, 12], "texture": "#0"},
+				"down": {"uv": [15, 0, 12, 3], "texture": "#0"}
+			}
+		},
+		{
+			"name": "Prawa Tylna Noga",
+			"from": [13, 0, 10],
+			"to": [16, 12, 13],
+			"faces": {
+				"north": {"uv": [0, 0, 1, 9], "texture": "#0"},
+				"east": {"uv": [0, 0, 2, 9], "texture": "#0"},
+				"south": {"uv": [0, 0, 1, 9], "texture": "#0"},
+				"west": {"uv": [0, 0, 2, 9], "texture": "#0"},
+				"up": {"uv": [0, 0, 1, 2], "texture": "#0"},
+				"down": {"uv": [0, 0, 1, 2], "texture": "#0"}
+			}
+		},
+		{
+			"from": [4, 9, -13],
+			"to": [5, 15, 3],
+			"rotation": {"angle": 0, "axis": "x", "origin": [8, 12, 8]},
+			"faces": {
+				"north": {"uv": [1, 6, 1.5, 9], "rotation": 270, "texture": "#2"},
+				"east": {"uv": [0, 0, 8, 3], "rotation": 90, "texture": "#2"},
+				"south": {"uv": [1.5, 6, 2, 9], "rotation": 90, "texture": "#2"},
+				"west": {"uv": [0, 3, 8, 6], "rotation": 90, "texture": "#2"},
+				"up": {"uv": [0, 6, 0.5, 14], "rotation": 90, "texture": "#2"},
+				"down": {"uv": [0.5, 6, 1, 14], "rotation": 90, "texture": "#2"}
+			}
+		},
+		{
+			"name": "Podstawa Armaty",
+			"from": [3, 7, 3],
+			"to": [13, 17, 13],
+			"rotation": {"angle": 0, "axis": "x", "origin": [8, 12, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 5, 5], "texture": "#1"},
+				"east": {"uv": [0, 5, 5, 10], "texture": "#1"},
+				"south": {"uv": [5, 0, 10, 5], "texture": "#1"},
+				"west": {"uv": [5, 5, 10, 10], "texture": "#1"},
+				"up": {"uv": [5, 15, 0, 10], "texture": "#1"},
+				"down": {"uv": [15, 0, 10, 5], "texture": "#1"}
+			}
+		},
+		{
+			"from": [4, 8, -13],
+			"to": [12, 9, 3],
+			"rotation": {"angle": 0, "axis": "x", "origin": [8, 12, 8]},
+			"faces": {
+				"north": {"uv": [0, 0, 4, 0.5], "texture": "#3"},
+				"east": {"uv": [0, 0, 8, 0.5], "texture": "#3"},
+				"south": {"uv": [0, 0, 4, 0.5], "texture": "#3"},
+				"west": {"uv": [0, 0, 8, 0.5], "texture": "#3"},
+				"up": {"uv": [0, 0, 4, 8], "texture": "#3"},
+				"down": {"uv": [0, 0, 4, 8], "texture": "#3"}
+			}
+		},
+		{
+			"from": [4, 15, -13],
+			"to": [12, 16, 3],
+			"rotation": {"angle": 0, "axis": "x", "origin": [8, 12, 8]},
+			"faces": {
+				"north": {"uv": [8, 0.5, 12, 1], "texture": "#3"},
+				"east": {"uv": [0, 8, 8, 8.5], "texture": "#3"},
+				"south": {"uv": [8, 1, 12, 1.5], "texture": "#3"},
+				"west": {"uv": [8, 0, 16, 0.5], "texture": "#3"},
+				"up": {"uv": [4, 8, 0, 0], "texture": "#3"},
+				"down": {"uv": [8, 0, 4, 8], "texture": "#3"}
+			}
+		},
+		{
+			"from": [11, 9, -13],
+			"to": [12, 15, 3],
+			"rotation": {"angle": 0, "axis": "x", "origin": [8, 12, 8]},
+			"faces": {
+				"north": {"uv": [1, 6, 1.5, 9], "texture": "#2"},
+				"east": {"uv": [0, 0, 8, 3], "texture": "#2"},
+				"south": {"uv": [1.5, 6, 2, 9], "texture": "#2"},
+				"west": {"uv": [0, 3, 8, 6], "texture": "#2"},
+				"up": {"uv": [0.5, 14, 0, 6], "texture": "#2"},
+				"down": {"uv": [1, 6, 0.5, 14], "texture": "#2"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"scale": [-0.5, 0.5, 0.5]
+		},
+		"thirdperson_lefthand": {
+			"scale": [0.5, 0.5, 0.5]
+		},
+		"gui": {
+			"rotation": [0, 90, 0],
+			"translation": [5.5, -2.75, 0],
+			"scale": [0.75, 0.75, 0.75]
+		}
+	},
+	"groups": [
+		{
+			"name": "Nogi",
+			"origin": [0, 0, 0],
+			"color": 0,
+			"children": [0, 1, 2, 3]
+		},
+		{
+			"name": "Armata",
+			"origin": [11.5, 16.5, -5],
+			"color": 0,
+			"children": [4, 5, 6, 7, 8]
+		}
+	]
+}

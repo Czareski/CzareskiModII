@@ -19,19 +19,22 @@ import net.minecraft.state.property.DirectionProperty;
 import net.minecraft.state.property.Property;
 import net.minecraft.text.LiteralText;
 import net.minecraft.text.Style;
-import net.minecraft.util.ActionResult;
-import net.minecraft.util.Hand;
-import net.minecraft.util.Util;
+import net.minecraft.util.*;
+import net.minecraft.util.function.BooleanBiFunction;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.*;
 
 import net.minecraft.util.registry.RegistryKey;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldEvents;
 import net.minecraft.world.event.GameEvent;
 import org.apache.logging.log4j.core.jmx.Server;
 
 import java.util.Map;
+import java.util.stream.Stream;
 
 public class Cannon extends Block {
     public static final DirectionProperty FACING;
@@ -40,26 +43,53 @@ public class Cannon extends Block {
 
     public Cannon(Settings settings) {
         super(settings);
-        this.setDefaultState((BlockState)((BlockState)this.stateManager.getDefaultState()).with(FACING, Direction.NORTH));
+        this.setDefaultState(this.stateManager.getDefaultState().with(FACING, Direction.NORTH));
 
     }
 
     public BlockState getPlacementState(ItemPlacementContext ctx) {
-        return (BlockState)this.getDefaultState().with(FACING, ctx.getPlayerFacing().getOpposite());
-    }
-    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
-        builder.add(new Property[]{FACING});
+        return this.getDefaultState().with(FACING, ctx.getPlayerFacing().getOpposite());
     }
 
     @Override
+    public BlockState rotate(BlockState state, BlockRotation rotation) {
+        return state.with(FACING, rotation.rotate(state.get(FACING)));
+    }
 
+    @Override
+    public BlockState mirror(BlockState state, BlockMirror mirror) {
+        return state.rotate(mirror.getRotation(state.get(FACING)));
+    }
+
+    @Override
+    protected void appendProperties(StateManager.Builder<Block, BlockState> builder) {
+        builder.add(FACING);
+    }
+
+    @Override
+    public BlockRenderType getRenderType(BlockState state) {
+        return BlockRenderType.MODEL;
+    }
+
+    @Override
+    public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext context) {
+        // Intellij zaproponował użycie jakiegoś nowoczesnego switcha więc skorzystałem, ale pierwszy raz taki widzę. Szczurek
+        return switch (state.get(FACING)) {
+            case EAST -> SHAPE_E;
+            case SOUTH -> SHAPE_S;
+            case WEST -> SHAPE_W;
+            default -> SHAPE_N;
+        };
+    }
+
+    @Override
     public ActionResult onUse(BlockState blockstate, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
         if (!world.isClient()) {
                 if (hand == Hand.MAIN_HAND) {
                     ServerWorld serverWorld = (ServerWorld) world;
                     Item item = player.getStackInHand(hand).getItem();
                     switch (item.getTranslationKey()) {
-                        case ("item.czareskimod.cannonball"):
+                        case ("item.minecraft.arrow"):
                             strzel(serverWorld, pos, player.getStackInHand(hand), player);
                             break;
                     }
@@ -100,4 +130,53 @@ public class Cannon extends Block {
             map.defaultReturnValue(new ItemDispenserBehavior());
         });
     }
+
+    private static final VoxelShape SHAPE_N = Stream.of(
+            Block.createCuboidShape(13, 0, 2, 16, 12, 5),
+            Block.createCuboidShape(0, 0, 11, 3, 12, 14),
+            Block.createCuboidShape(0, 0, 2, 3, 12, 5),
+            Block.createCuboidShape(13, 0, 11, 16, 12, 14),
+            Block.createCuboidShape(4, 9, -13, 5, 15, 3),
+            Block.createCuboidShape(3, 7, 3, 13, 17, 13),
+            Block.createCuboidShape(4, 8, -13, 12, 9, 3),
+            Block.createCuboidShape(4, 15, -13, 12, 16, 3),
+            Block.createCuboidShape(11, 9, -13, 12, 15, 3)
+            ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
+
+    private static final VoxelShape SHAPE_E = Stream.of(
+            Block.createCuboidShape(11, 0, 13, 14, 12, 16),
+            Block.createCuboidShape(2, 0, 0, 5, 12, 3),
+            Block.createCuboidShape(11, 0, 0, 14, 12, 3),
+            Block.createCuboidShape(2, 0, 13, 5, 12, 16),
+            Block.createCuboidShape(13, 9, 4, 29, 15, 5),
+            Block.createCuboidShape(3, 7, 3, 13, 17, 13),
+            Block.createCuboidShape(13, 8, 4, 29, 9, 12),
+            Block.createCuboidShape(13, 15, 4, 29, 16, 12),
+            Block.createCuboidShape(13, 9, 11, 29, 15, 12)
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
+
+    private static final VoxelShape SHAPE_S = Stream.of(
+            Block.createCuboidShape(0, 0, 11, 3, 12, 14),
+            Block.createCuboidShape(13, 0, 2, 16, 12, 5),
+            Block.createCuboidShape(13, 0, 11, 16, 12, 14),
+            Block.createCuboidShape(0, 0, 2, 3, 12, 5),
+            Block.createCuboidShape(11, 9, 13, 12, 15, 29),
+            Block.createCuboidShape(3, 7, 3, 13, 17, 13),
+            Block.createCuboidShape(4, 8, 13, 12, 9, 29),
+            Block.createCuboidShape(4, 15, 13, 12, 16, 29),
+            Block.createCuboidShape(4, 9, 13, 5, 15, 29)
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
+
+
+    private static final VoxelShape SHAPE_W = Stream.of(
+            Block.createCuboidShape(2, 0, 0, 5, 12, 3),
+            Block.createCuboidShape(11, 0, 13, 14, 12, 16),
+            Block.createCuboidShape(2, 0, 13, 5, 12, 16),
+            Block.createCuboidShape(11, 0, 0, 14, 12, 3),
+            Block.createCuboidShape(-13, 9, 11, 3, 15, 12),
+            Block.createCuboidShape(3, 7, 3, 13, 17, 13),
+            Block.createCuboidShape(-13, 8, 4, 3, 9, 12),
+            Block.createCuboidShape(-13, 15, 4, 3, 16, 12),
+            Block.createCuboidShape(-13, 9, 4, 3, 15, 5)
+    ).reduce((v1, v2) -> VoxelShapes.combineAndSimplify(v1, v2, BooleanBiFunction.OR)).get();
 }
