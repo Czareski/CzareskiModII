@@ -20,6 +20,7 @@ public class CzareskiClientMod implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.RADAR, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(ModBlocks.CANNON, RenderLayer.getCutout());
 
         EntityRendererRegistry.register(CzareskiMod.CANNONBALL, CannonballRenderer::new);
 
